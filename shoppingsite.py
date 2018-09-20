@@ -118,9 +118,12 @@ def add_to_cart(melon_id):
         session["cart"][melon_id] += 1
     else:
         session["cart"][melon_id] = 1
-    print(session)
-    return "Oops! This needs to be implemented!"
 
+    flash(" {} melon was successfully added to the cart.".format(melon_id))
+    print(session["cart"])
+
+    return redirect("/cart") 
+    # session[melon_id]
 
 @app.route("/login", methods=["GET"])
 def show_login():
